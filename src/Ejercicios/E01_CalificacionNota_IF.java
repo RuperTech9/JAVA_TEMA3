@@ -12,6 +12,7 @@ public class E01_CalificacionNota_IF {
         Scanner teclado = new Scanner(System.in);
         int nota;
         String resultado=null;
+        int nota2;
         
         System.out.println("Escriba la nota: ");
         nota = teclado.nextInt();
