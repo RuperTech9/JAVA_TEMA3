@@ -10,13 +10,16 @@ import java.util.Scanner;
 public class ArbolNavidadV1 {
 
     public static void main(String[] args) {
+        int altura;
+        String simbolo;
+        
         Scanner teclado = new Scanner(System.in);
 
-        // Solicita la altura de la copa y el carácter de relleno al usuario
+        //Solicita la altura de la copa y el carácter de relleno al usuario
         System.out.println("Introduce la altura de la copa del árbol: ");
-        int altura = teclado.nextInt();
+        altura = teclado.nextInt();
         System.out.println("Introduce el carácter de relleno: ");
-        String simbolo = teclado.next();
+        simbolo = teclado.next();
         System.out.println("");
         arbolNavidad(simbolo, altura);
     }

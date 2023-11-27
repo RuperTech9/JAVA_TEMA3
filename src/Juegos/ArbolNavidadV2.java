@@ -19,10 +19,8 @@ public class ArbolNavidadV2 {
             System.out.println("\nMenú:");
             System.out.println("1. Imprimir figura del árbol de Navidad");
             System.out.println("2. Imprimir figura del árbol de Navidad invertido");
-            System.out.println("3. Imprimir pirámide");
-            System.out.println("4. Imprimir cuadrado");
-            System.out.println("5. Imprimir cuadrado vacío");
-            System.out.println("6. Salir");
+            System.out.println("3. Imprimir cuadrado");
+            System.out.println("4. Salir");
             System.out.print("Introduce una opción: ");
             opcion = teclado.nextInt();
 
