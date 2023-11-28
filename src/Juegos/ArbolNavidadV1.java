@@ -9,49 +9,82 @@ import java.util.Scanner;
  * Altura de la copa
  * Símbolo de relleno
  *
- * @author Ruper
+ * @author Alejandro Ruperez
  */
 public class ArbolNavidadV1 {
-
     public static void main(String[] args) {
-        int altura;
-        String simbolo;
-        
-        Scanner teclado = new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in,"ISO-8859-1");
+        int opcion;
+        do {
+            menu();
+            opcion = teclado.nextInt();
 
-        System.out.println("Introduce la altura de la copa del árbol: ");
-        altura = teclado.nextInt();
-        System.out.println("Introduce el carácter de relleno: ");
-        simbolo = teclado.next();
-        System.out.println("");
-        arbolNavidad(simbolo, altura);
+            switch (opcion) {
+                case 1: // Árbol de Navidad
+                    datosArbol(teclado);
+                    break;
+                case 2: // Salir
+                    System.out.println("\nPROGRAMA FINALIZADO.");
+                    break;
+                default:
+                    System.out.println("\nOpción no válida. Por favor, introduce una opción válida.");
+            }
+        } while (opcion != 2);
     }// FIN MAIN
-
+    
     
     /**
-     * Imprime una figura centrada en un ancho de pantalla dado.
-     * @param figura La figura (cadena de caracteres) a centrar.
-     * @param anchoPantalla El ancho de la pantalla donde se centra la figura.
+     * Imprimo el menú del programa.
+     */
+    public static void menu(){
+        System.out.println("\n****************************************************************");
+        System.out.println("***   PROGRAMA PARA DIBUJAR LA FIGURA DE UN ARBOL DE NAVIDAD ***");
+        System.out.println("***                                                          ***");
+        System.out.println("***   1. Imprimir árbol de Navidad                           ***");
+        System.out.println("***   2. Salir                                               ***");
+        System.out.println("***                                                          ***");
+        System.out.println("***   Author: Alejandro Rupérez                              ***");
+        System.out.println("***   Versión 1.0                                            ***");
+        System.out.println("****************************************************************");
+        System.out.print("\nIntroduce una opción: ");
+    }// FIN PROCEDIMIENTO
+    
+    /**
+     * Solicito al usuario los datos para crear el árbol de Navidad.
+     * @param teclado Scanner para leer la entrada del usuario.
+     */
+    public static void datosArbol(Scanner teclado) {
+        System.out.print("\nIntroduce la altura de la copa del árbol: ");
+        int altura = teclado.nextInt();
+        System.out.print("Introduce el símbolo de relleno: ");
+        String simbolo = teclado.next();
+        System.out.println("");
+        arbolNavidad(simbolo, altura);
+    }// FIN PROCEDIMIENTO
+    
+    /**
+     * Imprimo una figura centrada en un ancho de pantalla dado.
+     * @param figura cadena de caracteres a centrar.
+     * @param anchoPantalla donde se centra la figura.
      */
     private static void centrarFigura(String figura, int anchoPantalla) {
         int espaciosDelante = (anchoPantalla - figura.length()) / 2;
         for (int i = 0; i < espaciosDelante; i++) {
             System.out.print(" ");
-        }
+        }// FIN FOR
         System.out.println(figura);
-    }
+    }// FIN PROCEDIMIENTO
 
     /**
      * Dibuja un árbol de Navidad.
-     * @param simbolo El carácter de relleno para el árbol.
+     * @param simbolo El símbolo de relleno para el árbol.
      * @param altura La altura de la copa del árbol.
      */
     private static void arbolNavidad(String simbolo, int altura) {
-        // Construye y centra la copa del árbol línea por línea
         for (int i = 1; i <= altura; i++) {// Altura de la copa
             String arbol = "";// Inicializo como cadena vacía
-            for (int j = 1; j <= (2 * i - 1); j++) {
-                arbol += simbolo;
+            for (int j = 1; j <= (2 * i - 1); j++) {// Símbolo: donde cada nivel es más ancho que el anterior.
+                arbol += simbolo;// Sumo y asigno
             }// FIN FOR INTERNO
             centrarFigura(arbol, 80); // Centro la línea actual de la copa
         }// FIN FOR EXTERNO
@@ -67,13 +100,12 @@ public class ArbolNavidadV1 {
         }
         
         String tronco = "";// Inicializo como cadena vacía
-        
         for (int j = 1; j <= anchoTronco; j++) {// Creo la línea del tronco con el ancho calculado
             tronco += simbolo;
-        }// FIN FOR 
+        }// FIN FOR
         
-        for (int j = 1; j <= alturaTronco; j++) {// Imprimo la altura del tronco, centrando cada línea
+        for (int j = 1; j <= alturaTronco; j++) {// Imprimo la altura del tronco y centro cada línea
             centrarFigura(tronco, 80);
         }// FIN FOR 
-    }
-}
+    }// FIN PROCEDIMIENTO
+}// FIN CLASS
