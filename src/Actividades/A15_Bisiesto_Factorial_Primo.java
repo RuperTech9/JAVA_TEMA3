@@ -30,7 +30,7 @@ public class A15_Bisiesto_Factorial_Primo {
 
     public static int calcularFactorial(int num) {
         int factorial = 1;
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= num; i++) {
             factorial = factorial*i;
         }
         return factorial;
