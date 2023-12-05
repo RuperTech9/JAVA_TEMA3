@@ -12,8 +12,8 @@ import java.util.Scanner;
  * @author Alejandro Ruperez
  */
 public class ArbolNavidadV1 {
+    public static Scanner teclado = new Scanner(System.in,"ISO-8859-1");// Declaro el Scanner como estático para que sea accesible desde cualquier método de la clase.
     public static void main(String[] args) {
-        Scanner teclado = new Scanner(System.in,"ISO-8859-1");
         int opcion;
         do {
             menu();
@@ -21,7 +21,7 @@ public class ArbolNavidadV1 {
 
             switch (opcion) {
                 case 1: // Árbol de Navidad
-                    datosArbol(teclado);
+                    datosArbol();
                     break;
                 case 2: // Salir
                     System.out.println("\nPROGRAMA FINALIZADO.");
@@ -51,21 +51,20 @@ public class ArbolNavidadV1 {
     
     /**
      * Solicito al usuario los datos para crear el árbol de Navidad.
-     * @param teclado Scanner para leer la entrada del usuario.
      */
-    public static void datosArbol(Scanner teclado) {
+    public static void datosArbol() {
         System.out.print("\nIntroduce la altura de la copa del árbol: ");
         int altura = teclado.nextInt();
         System.out.print("Introduce el símbolo de relleno: ");
         String simbolo = teclado.next();
         System.out.println("");
-        arbolNavidad(simbolo, altura);
+        arbolNavidad(simbolo, altura);// Paso los datos recogidos al método arbolNavidad
     }// FIN PROCEDIMIENTO
     
     /**
      * Imprimo una figura centrada en un ancho de pantalla dado.
-     * @param figura cadena de caracteres a centrar.
-     * @param anchoPantalla donde se centra la figura.
+     * @param figura Cadena de caracteres a centrar.
+     * @param anchoPantalla Donde se centra la figura.
      */
     private static void centrarFigura(String figura, int anchoPantalla) {
         int espaciosDelante = (anchoPantalla - figura.length()) / 2;
@@ -77,8 +76,8 @@ public class ArbolNavidadV1 {
 
     /**
      * Dibuja un árbol de Navidad.
-     * @param simbolo El símbolo de relleno para el árbol.
-     * @param altura La altura de la copa del árbol.
+     * @param simbolo Relleno para el árbol.
+     * @param altura Altura de la copa del árbol.
      */
     private static void arbolNavidad(String simbolo, int altura) {
         for (int i = 1; i <= altura; i++) {// Altura de la copa
