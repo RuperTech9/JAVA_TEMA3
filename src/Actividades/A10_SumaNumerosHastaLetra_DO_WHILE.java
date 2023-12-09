@@ -29,7 +29,7 @@ public class A10_SumaNumerosHastaLetra_DO_WHILE {
             
             if (texto.charAt(0) == 's' || texto.charAt(0) == 'S') {
                 System.out.println("Salir");
-                estado = false;
+                break;
             }else{
                 int numero = Integer.parseInt(texto);
                 contador = contador + numero;

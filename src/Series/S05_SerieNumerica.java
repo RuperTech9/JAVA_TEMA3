@@ -16,10 +16,10 @@ public class S05_SerieNumerica {
         for (int i = 0; i < numero; i++) {
             int valor;
             if (i % 2 == 0) {
-                // Para las posiciones pares, la serie comienza en 1 y aumenta en 4 cada vez
+                // Para las posiciones pares, la serie comienza en 1 y aumenta en 2 cada vez
                 valor = 1 + (i / 2) * 2;
             } else {
-                // Para las posiciones impares, la serie comienza en 5 y aumenta en 4 cada vez
+                // Para las posiciones impares, la serie comienza en 5 y aumenta en 2 cada vez
                 valor = 5 + (i / 2) * 2;
             }
             System.out.print(valor);
