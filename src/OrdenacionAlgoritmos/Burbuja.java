@@ -41,12 +41,47 @@ public class Burbuja {
         return numerosArray;
     }
     
+    public static int [] burbujaSimple2(int [] numerosArray){
+        boolean intercambio=true;
+        int temp;
+        int i=0;
+        int j=numerosArray.length-1;
+        
+        while (i < j && intercambio) {
+            intercambio = false;
+            for (int k = i; k < j; k++) {
+                if (numerosArray[k] > numerosArray[k + 1]) {
+                    temp = numerosArray[k];
+                    numerosArray[k] = numerosArray[k + 1];
+                    numerosArray[k + 1] = temp;
+                    intercambio = true;
+                }
+            }
+            j--;
+
+            if (intercambio) {
+                intercambio = false;
+                for (int k = j; k > i; k--) {
+                    if (numerosArray[k] < numerosArray[k - 1]) {
+                        temp = numerosArray[k];
+                        numerosArray[k] = numerosArray[k - 1];
+                        numerosArray[k - 1] = temp;
+                        intercambio = true;
+                    }
+                }
+                i++;
+            }
+        
+        }
+        
+        return numerosArray;
+    }
+    
     public static void imprimirArray(int[] array, int longitud){
         System.out.println("El resultado del array es: ");
         for(int i=0;i<longitud;i++){
             System.out.print(array[i]+", ");
         }
-        
     }
     
     public static void main(String [] args){
@@ -59,6 +94,9 @@ public class Burbuja {
         imprimirArray(array, longitud);
         System.out.println("");
         burbujaSimpleDesc(array2);
+        imprimirArray(array2, longitud);
+        System.out.println("");
+        burbujaSimple2(array2);
         imprimirArray(array2, longitud);
     }
 }
