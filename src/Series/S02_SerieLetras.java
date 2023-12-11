@@ -21,7 +21,7 @@ public class S02_SerieLetras {
             
             //Bucle Anidado para Repetición de Letras
             for (int j = 0; j < i; j++) {
-                System.out.print(letra);//En cada iteración, imprimoe la letra actual.
+                System.out.print(letra);//En cada iteración, imprime la letra actual.
                 if (j < i - 1) {
                     System.out.print(",");//si no es la última letra de la serie actual, imprime una coma.
                 }

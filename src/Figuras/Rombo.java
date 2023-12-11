@@ -16,11 +16,9 @@ public class Rombo {
         String simbolo = teclado.next();
         
         int mitad = diametro / 2;
-
         for (int i = 0; i < diametro; i++) {
             int espacios = Math.abs(mitad - i);
             int simbolos = diametro - 2 * espacios;
-            
             for (int j = 0; j < espacios; j++) {
                 System.out.print(" ");
             }
